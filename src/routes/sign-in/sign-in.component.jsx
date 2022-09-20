@@ -21,6 +21,7 @@ const SignIn = () => {
 
   const logFacebookUser = async () => {
     const result = await signInWithFacebook();
+    console.log(result);
   };
   return (
     <div>
