@@ -3,24 +3,24 @@ import {
   signInWithGooglePopup,
   signInWithGitHub,
   signInWithFacebook,
-  // createUserDocumentFromAuth,
+  createUserDocumentFromAuth,
 } from "../../utils/firebase/firebase.utils";
 
 const SignIn = () => {
   const logGoogleUser = async () => {
-    const result = await signInWithGooglePopup();
-    console.log("result:--", result);
+    const { user } = await signInWithGooglePopup();
+    console.log("user:--", user);
+    const userDocRef = await createUserDocumentFromAuth(user);
+
     // const userDocRef = await createUserDocumentFromAuth(user);
   };
 
   const logGitHubUser = async () => {
     const result = await signInWithGitHub();
-    console.log("result===", result);
   };
 
   const logFacebookUser = async () => {
     const result = await signInWithFacebook();
-    console.log("result====", result);
   };
   return (
     <div>
